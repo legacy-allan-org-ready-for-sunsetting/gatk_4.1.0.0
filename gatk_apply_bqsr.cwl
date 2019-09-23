@@ -13,11 +13,6 @@ inputs:
     secondaryFiles:
       - .fai
       - ^.dict
-  - id: create_output_bam_index
-    type: boolean?
-    inputBinding:
-      position: 0
-      prefix: '--create-output-bam-index'
   - id: bqsr_recal_file
     type: File
     inputBinding:
@@ -208,6 +203,8 @@ outputs:
     type: File?
     outputBinding:
       glob: '$(inputs.input.basename.replace(''.bam'', '''')).recal.bam'
+    secondaryFiles:
+      - ^.bai
 label: gatk_apply_bqsr_4.1.0.0
 arguments:
   - position: 0
@@ -216,6 +213,9 @@ arguments:
   - position: 0
     prefix: '--tmp-dir'
     valueFrom: .
+  - id: create_output_bam_index
+    prefix: '--create-output-bam-index'
+    valueFrom: 'true'
 requirements:
   - class: ResourceRequirement
     ramMin: 6000
