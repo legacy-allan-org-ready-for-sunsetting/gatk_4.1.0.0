@@ -8,7 +8,7 @@ baseCommand: [ 'gatk', 'CollectHsMetrics' ]
 
 arguments:
 - position: 0
-  prefix: --'--TMP_DIR'
+  prefix: --TMP_DIR
   valueFrom: .
 
 requirements:
@@ -24,21 +24,12 @@ doc: |
   None
 
 inputs:
-
-  TMP_DIR:
-    type: string?
-    inputBinding:
-      prefix: --TMP_DIR
-      position: 2
-      separate: false
-
   I:
     type: File
     inputBinding:
       prefix: --I
       position: 2
-      separate: false
-
+      
   BI:
     type: File
     doc: An interval list file that contains the locations of the baits used. Default
@@ -46,8 +37,7 @@ inputs:
     inputBinding:
       prefix: --BAIT_INTERVALS
       position: 2
-      separate: false
-
+      
   N:
     type: ['null', string]
     doc: Bait set name. If not provided it is inferred from the filename of the bait
@@ -55,8 +45,7 @@ inputs:
     inputBinding:
       prefix: --BAIT_SET_NAME
       position: 2
-      separate: false
-
+      
   TI:
     type: File
     doc: An interval list file that contains the locations of the targets. Default
@@ -64,25 +53,21 @@ inputs:
     inputBinding:
       prefix: --TARGET_INTERVALS
       position: 2
-      separate: false
-
-
+      
   O:
     type: string
     doc: The output file to write the metrics to. Required.
     inputBinding:
       prefix: --O
       position: 2
-      separate: false
-
+      
   LEVEL:
     type:
     - 'null'
     - type: array
       items: string
       inputBinding:
-        prefix: --LEVEL
-        separate: false
+        prefix: --LEVEL    
         position: 2
 
   PER_TARGET_COVERAGE:
@@ -91,7 +76,6 @@ inputs:
       - null.
     inputBinding:
       prefix: --PER_TARGET_COVERAGE
-      separate: false
       position: 2
 
   PER_BASE_COVERAGE:
@@ -101,7 +85,6 @@ inputs:
       for use with large target sets. Default value - null.
     inputBinding:
       prefix: --PER_BASE_COVERAGE
-      separate: false
       position: 2
 
   NEAR_DISTANCE:
@@ -111,7 +94,6 @@ inputs:
       value - 250. This option can be set to 'null' to clear the default value.
     inputBinding:
       prefix: --NEAR_DISTANCE
-      separate: false
       position: 2
 
   MQ:
@@ -120,7 +102,6 @@ inputs:
       - 20. This option can be set to 'null' to clear the default value.
     inputBinding:
       prefix: --MINIMUM_MAPPING_QUALITY
-      separate: false
       position: 2
 
   Q:
@@ -129,7 +110,6 @@ inputs:
       This option can be set to 'null' to clear the default value.
     inputBinding:
       prefix: --MINIMUM_BASE_QUALITY
-      separate: false
       position: 2
 
   CLIP_OVERLAPPING_READS:
@@ -147,8 +127,7 @@ inputs:
       Default is 200. Default value - 200. This option can be set to 'null' to clear
       the default value.
     inputBinding:
-      prefix: --COVERAGE_CAP
-      separate: false
+      prefix: --COVERAGE_CAP 
       position: 2
 
   SAMPLE_SIZE:
@@ -158,7 +137,6 @@ inputs:
       value.
     inputBinding:
       prefix: --SAMPLE_SIZE
-      separate: false
       position: 2
 
   QUIET:
@@ -187,35 +165,30 @@ inputs:
     inputBinding:
       prefix: --VERBOSITY
       position: 2
-      separate: false
-
+      
   VALIDATION_STRINGENCY:
     type: ['null', string]
     default: SILENT
     inputBinding:
       prefix: --VALIDATION_STRINGENCY
       position: 2
-      separate: false
-
+      
   COMPRESSION_LEVEL:
     type: ['null', string]
     inputBinding:
       prefix: --COMPRESSION_LEVEL
       position: 2
-      separate: false
-
+      
   MAX_RECORDS_IN_RAM:
     type: ['null', string]
     inputBinding:
       prefix: --MAX_RECORDS_IN_RAM
       position: 2
-      separate: false
-
+      
   REFERENCE_SEQUENCE:
     type: File
     inputBinding:
       prefix: --REFERENCE_SEQUENCE
-      separate: false
       position: 2
 
 outputs:
