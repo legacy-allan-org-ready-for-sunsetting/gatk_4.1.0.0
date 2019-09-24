@@ -8,7 +8,7 @@ baseCommand: [ 'gatk', 'CollectHsMetrics' ]
 
 arguments:
 - position: 0
-  prefix: '--TMP_DIR'
+  prefix: --'--TMP_DIR'
   valueFrom: .
 
 requirements:
@@ -28,14 +28,14 @@ inputs:
   TMP_DIR:
     type: string?
     inputBinding:
-      prefix: TMP_DIR
+      prefix: --TMP_DIR
       position: 2
       separate: false
 
   I:
     type: File
     inputBinding:
-      prefix: I
+      prefix: --I
       position: 2
       separate: false
 
@@ -44,7 +44,7 @@ inputs:
     doc: An interval list file that contains the locations of the baits used. Default
       value - null. This option must be specified at least 1 times.
     inputBinding:
-      prefix: BAIT_INTERVALS
+      prefix: --BAIT_INTERVALS
       position: 2
       separate: false
 
@@ -53,7 +53,7 @@ inputs:
     doc: Bait set name. If not provided it is inferred from the filename of the bait
       intervals. Default value - null.
     inputBinding:
-      prefix: BAIT_SET_NAME
+      prefix: --BAIT_SET_NAME
       position: 2
       separate: false
 
@@ -62,7 +62,7 @@ inputs:
     doc: An interval list file that contains the locations of the targets. Default
       value - null. This option must be specified at least 1 times.
     inputBinding:
-      prefix: TARGET_INTERVALS
+      prefix: --TARGET_INTERVALS
       position: 2
       separate: false
 
@@ -71,7 +71,7 @@ inputs:
     type: string
     doc: The output file to write the metrics to. Required.
     inputBinding:
-      prefix: O
+      prefix: --O
       position: 2
       separate: false
 
@@ -81,7 +81,7 @@ inputs:
     - type: array
       items: string
       inputBinding:
-        prefix: LEVEL
+        prefix: --LEVEL
         separate: false
         position: 2
 
@@ -90,7 +90,7 @@ inputs:
     doc: An optional file to output per target coverage information to. Default value
       - null.
     inputBinding:
-      prefix: PER_TARGET_COVERAGE
+      prefix: --PER_TARGET_COVERAGE
       separate: false
       position: 2
 
@@ -100,7 +100,7 @@ inputs:
       file contains one line per target base and can grow very large. It is not recommended
       for use with large target sets. Default value - null.
     inputBinding:
-      prefix: PER_BASE_COVERAGE
+      prefix: --PER_BASE_COVERAGE
       separate: false
       position: 2
 
@@ -110,7 +110,7 @@ inputs:
       the read to be considered 'near probe' and included in percent selected. Default
       value - 250. This option can be set to 'null' to clear the default value.
     inputBinding:
-      prefix: NEAR_DISTANCE
+      prefix: --NEAR_DISTANCE
       separate: false
       position: 2
 
@@ -119,7 +119,7 @@ inputs:
     doc: Minimum mapping quality for a read to contribute coverage. Default value
       - 20. This option can be set to 'null' to clear the default value.
     inputBinding:
-      prefix: MINIMUM_MAPPING_QUALITY
+      prefix: --MINIMUM_MAPPING_QUALITY
       separate: false
       position: 2
 
@@ -128,7 +128,7 @@ inputs:
     doc: Minimum base quality for a base to contribute coverage. Default value - 20.
       This option can be set to 'null' to clear the default value.
     inputBinding:
-      prefix: MINIMUM_BASE_QUALITY
+      prefix: --MINIMUM_BASE_QUALITY
       separate: false
       position: 2
 
@@ -138,7 +138,7 @@ inputs:
       This option can be set to 'null' to clear the default value. Possible values
       - {true, false}
     inputBinding:
-      prefix: CLIP_OVERLAPPING_READSTrue
+      prefix: --CLIP_OVERLAPPING_READS
       position: 2
 
   COVMAX:
@@ -147,7 +147,7 @@ inputs:
       Default is 200. Default value - 200. This option can be set to 'null' to clear
       the default value.
     inputBinding:
-      prefix: COVERAGE_CAP
+      prefix: --COVERAGE_CAP
       separate: false
       position: 2
 
@@ -157,7 +157,7 @@ inputs:
       Default value - 10000. This option can be set to 'null' to clear the default
       value.
     inputBinding:
-      prefix: SAMPLE_SIZE
+      prefix: --SAMPLE_SIZE
       separate: false
       position: 2
 
@@ -165,27 +165,27 @@ inputs:
     type: ['null', boolean]
     default: false
     inputBinding:
-      prefix: QUIETTrue
+      prefix: --QUIET
       position: 2
 
   CREATE_MD5_FILE:
     type: ['null', boolean]
     default: false
     inputBinding:
-      prefix: CREATE_MD5_FILETrue
+      prefix: --CREATE_MD5_FILE
       position: 2
 
   CREATE_INDEX:
     type: ['null', boolean]
     default: false
     inputBinding:
-      prefix: CREATE_INDEXTrue
+      prefix: --CREATE_INDEX
       position: 2
 
   VERBOSITY:
     type: ['null', string]
     inputBinding:
-      prefix: VERBOSITY
+      prefix: --VERBOSITY
       position: 2
       separate: false
 
@@ -193,28 +193,28 @@ inputs:
     type: ['null', string]
     default: SILENT
     inputBinding:
-      prefix: VALIDATION_STRINGENCY
+      prefix: --VALIDATION_STRINGENCY
       position: 2
       separate: false
 
   COMPRESSION_LEVEL:
     type: ['null', string]
     inputBinding:
-      prefix: COMPRESSION_LEVEL
+      prefix: --COMPRESSION_LEVEL
       position: 2
       separate: false
 
   MAX_RECORDS_IN_RAM:
     type: ['null', string]
     inputBinding:
-      prefix: MAX_RECORDS_IN_RAM
+      prefix: --MAX_RECORDS_IN_RAM
       position: 2
       separate: false
 
   REFERENCE_SEQUENCE:
     type: File
     inputBinding:
-      prefix: REFERENCE_SEQUENCE
+      prefix: --REFERENCE_SEQUENCE
       separate: false
       position: 2
 
